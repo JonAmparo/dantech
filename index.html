@@ -8,6 +8,8 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <link rel="stylesheet" href="styles.css" />
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Bootstrap CSS -->
     <link
@@ -34,8 +36,8 @@
     ></script>
     <script type="text/javascript">
       google.charts.load('current', { packages: ['corechart'] });
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
+      google.charts.setOnLoadCallback(drawChart1);
+      function drawChart1() {
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
           ['Work', 11],
@@ -55,18 +57,12 @@
         );
         chart.draw(data, options);
       }
-    </script>
 
-    <!-- Chart #2 -->
-    <script
-      type="text/javascript"
-      src="https://www.gstatic.com/charts/loader.js"
-    ></script>
-    <script type="text/javascript">
+      // Chart #2
       google.charts.load('current', { packages: ['corechart'] });
-      google.charts.setOnLoadCallback(drawVisualization);
+      google.charts.setOnLoadCallback(drawChart2);
 
-      function drawVisualization() {
+      function drawChart2() {
         // Some raw data (not necessarily accurate)
         var data = google.visualization.arrayToDataTable([
           [
@@ -98,18 +94,12 @@
         );
         chart.draw(data, options);
       }
-    </script>
 
-    <!-- Chart #3 -->
-    <script
-      type="text/javascript"
-      src="https://www.gstatic.com/charts/loader.js"
-    ></script>
-    <script type="text/javascript">
+      //  Chart #3
       google.charts.load('current', { packages: ['corechart'] });
-      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawChart3);
 
-      function drawChart() {
+      function drawChart3() {
         var data = google.visualization.arrayToDataTable([
           ['Age', 'Weight'],
           [8, 12],
@@ -133,14 +123,12 @@
 
         chart.draw(data, options);
       }
-    </script>
 
-    <!-- Chart #4 -->
-    <script type="text/javascript">
+      //  Chart #4
       google.charts.load('current', { packages: ['corechart'] });
-      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(drawChart4);
 
-      function drawChart() {
+      function drawChart4() {
         var data = google.visualization.arrayToDataTable([
           ['Year', 'Sales', 'Expenses'],
           ['2004', 1000, 400],
@@ -161,6 +149,13 @@
 
         chart.draw(data, options);
       }
+
+      $(window).resize(function() {
+        drawChart1();
+        drawChart2();
+        drawChart3();
+        drawChart4();
+      });
     </script>
     <!-- End of Charts -->
   </head>
@@ -182,15 +177,16 @@
           >
         </li>
       </ul>
+      <!-- Chart #1 -->
       <div class="bg-darkgrey pt-3">
         <div class="row px-2">
           <div class="col-md-4">
             <div class="border border-secondary bg-white">
               <div class="row mx-0 bg-gainsboro align-items-center py-1 px-1">
-                <div class="col-md-9 px-0">
+                <div class="col-9 px-0">
                   <h5>My Daily Activities</h5>
                 </div>
-                <div class="col-md-3 px-0">
+                <div class="col-3 px-0">
                   <div class="float-right mr-2">
                     <a href="#" class="text-secondary">
                       <i class="fas fa-comment-alt mr-2"></i
@@ -202,18 +198,18 @@
                 </div>
               </div>
               <div class="row mx-0">
-                <div
-                  id="piechart_3d"
-                  style="width: 900px; height: 500px;"
-                ></div>
+                <div class="col-12">
+                  <div id="piechart_3d" class="chart"></div>
+                </div>
               </div>
             </div>
+            <!-- Chart #2 -->
             <div class="border border-secondary bg-white my-3">
               <div class="row mx-0 bg-gainsboro align-items-center py-1 px-1">
-                <div class="col-md-9 px-0">
+                <div class="col-9 px-0">
                   <h5>Age vs. Weight comparison</h5>
                 </div>
-                <div class="col-md-3 px-0">
+                <div class="col-3 px-0">
                   <div class="float-right mr-2">
                     <a href="#" class="text-secondary">
                       <i class="fas fa-comment-alt mr-2"></i
@@ -225,17 +221,21 @@
                 </div>
               </div>
               <div class="row mx-0">
-                <div id="chart_div3" style="width: 900px; height: 500px;"></div>
+                <div class="col-12">
+                  <div id="chart_div3" class="chart"></div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md-8 pl-0">
+
+          <!-- Right Column -->
+          <div class="col-md-8 pl-md-0">
             <div class="border border-secondary bg-white">
               <div class="row mx-0 bg-gainsboro align-items-center py-1 px-1">
-                <div class="col-md-9 px-0">
+                <div class="col-9 px-0">
                   <h5>Monthly Coffee Production by Country</h5>
                 </div>
-                <div class="col-md-3 px-0">
+                <div class="col-3 px-0">
                   <div class="float-right mr-2">
                     <a href="#" class="text-secondary">
                       <i class="fas fa-comment-alt mr-2"></i
@@ -247,15 +247,17 @@
                 </div>
               </div>
               <div class="row mx-0">
-                <div id="chart_div" style="width: 900px; height: 500px;"></div>
+                <div class="col-12">
+                  <div id="chart_div" class="chart"></div>
+                </div>
               </div>
             </div>
             <div class="border border-secondary bg-white my-3">
               <div class="row mx-0 bg-gainsboro align-items-center py-1 px-1">
-                <div class="col-md-9 px-0">
+                <div class="col-9 px-0">
                   <h5>Company Peformance</h5>
                 </div>
-                <div class="col-md-3 px-0">
+                <div class="col-3 px-0">
                   <div class="float-right mr-2">
                     <a href="#" class="text-secondary">
                       <i class="fas fa-comment-alt mr-2"></i
@@ -267,7 +269,9 @@
                 </div>
               </div>
               <div class="row mx-0">
-                <div id="curve_chart" style="width: 900px; height: 500px"></div>
+                <div class="col-12">
+                  <div id="curve_chart" class="chart"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -277,6 +281,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

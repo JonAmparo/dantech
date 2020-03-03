@@ -13,3 +13,13 @@
 .bg-gainsboro {
   background-color: #dcdcdc;
 }
+
+.chart {
+  width: 100%;
+  min-height: 450px;
+}
+
+/* svg {
+  width: 100%;
+  max-height: 100%;
+} */
